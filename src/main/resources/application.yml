@@ -1,0 +1,68 @@
+spring :
+  profiles :
+    active : dev
+
+
+  thymeleaf:
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+    mode : LEGACYHTML5
+  http:
+    multipart:
+      maxFileSize: 10Mb
+      maxRequestSize: 10Mb
+
+flowable :
+  checkProcessDefinitions : false
+  common:
+    app:
+      idm-url: a
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - shutdown
+
+
+logging:
+    level:
+       cn:
+        com:
+         crc:
+          ems:
+           receivable:
+            mapper: DEBUG
+         ibatis : DEBUG
+
+
+
+#mybatis:
+#  mapper-locations: classpath:xml/*.xml
+
+ribbon:
+  ReadTimeout : 60000
+  ConnectTimeout : 60000
+  MaxAutoRetries : 0
+  MaxAutoRetriesNextServer : 1
+
+
+
+
+threadpool:
+   core-pool-size: 10
+   max-pool-size: 80
+   queue-capacity: 300
+   keep-alive-seconds: 300
+
